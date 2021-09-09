@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>押すな！！</title>
+    <meta charset="utf-8">
+    <style>
+
+     body{
+				color:red;
+				background-color:black;
+      }
+
+    </style>
+</head>
+<body>
+    <!--<h1>hello world</h1>
+    <input type="button" id="btn" value="押すな！">-->
+    <div id="text"></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+
+        /*function osuna(){
+            while(true){alert('エラー！！');}
+        }
+        document.getElementById('btn').onclick=function(){osuna();}*/
+
+
+				// let text=new Date();
+				let text="";
+				let flag=1;
+
+				function write(){
+
+					let text_h=Number($("#text").css("height").replace('px', ''));
+					let screen_h=screen.availHeight;
+					//console.log(text_h);
+					//console.log(screen_h);
+
+					if(text_h<screen_h){
+
+						if(flag%2 == 0){
+							console.log(flag%2);
+							text+=new Date();
+						}else{
+							console.log(flag%2);
+							text+="error!!\n";
+						}
+						flag++;						
+						//document.write(text);
+						document.getElementById("text").innerHTML=text;	
+						// console.log("%c"+text,"color:red;background-color:black;");
+
+					}else{
+						text="";
+						document.getElementById("text").innerHTML=text;
+					}
+
+
+
+				}
+
+				setInterval(function(){write();},10);
+				//Math.floor(Math.random() * 1000);
+
+    </script>
+</body>
+</html>
